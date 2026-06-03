@@ -1,16 +1,24 @@
 export class Person {
   // プロパティ (クラスが持つデータ)
-  name: string;
-  age: number;
+  private name: string;
+  private age: number;
+  private password: string;
+  private readonly birthYear: number;
 
   // コンストラクタ
-  constructor(name: string, age: number) {
+  constructor(name: string, age: number, password: string, birthYear: number) {
     this.name = name;
     this.age = age;
+    this.password = password;
+    this.birthYear = birthYear;
   }
 
   // メソッド (クラスが持つ処理)
-  introduce(): string {
-    return `こんにちは、私の名前は ${this.name} です。年齢は ${this.age} 歳です。`;
+  public introduce(): string {
+    return `こんにちは、私の名前は ${this.name} です。年齢は ${this.age} 歳です。${this.birthYear} 年生まれです。`;
+  }
+
+  public changePassword(newPassword: string): void {
+    this.password = newPassword;
   }
 }
